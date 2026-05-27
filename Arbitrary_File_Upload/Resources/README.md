@@ -12,3 +12,10 @@ En forgeant une requête réseau `multipart/form-data` via l'utilitaire `curl`, 
 curl -s -F "uploaded=@test.php;type=image/jpeg" \
      -F "Upload=Upload" \
      "[http://192.168.159.133/index.php?page=upload](http://192.168.159.133/index.php?page=upload)"
+```
+
+## Remédiation
+
+1. **Validation stricte de l'extension :** Implémenter une liste blanche des extensions autorisées (ex: `.jpg`, `.jpeg`, `.png`) et rejeter systématiquement toute autre extension, indépendamment du type MIME annoncé.
+2. **Vérification du contenu réel :** Utiliser des fonctions d'analyse binaire côté serveur (ex: l'extension `Fileinfo` en PHP ou l'examen des "Magic Bytes") pour valider la véritable nature du fichier.
+3. **Sécurisation du stockage :** Enregistrer les fichiers téléversés en dehors de la racine web publique de l'application et désactiver l'exécution des scripts (via la configuration du serveur web ou des droits d'accès) dans le répertoire de destination.
