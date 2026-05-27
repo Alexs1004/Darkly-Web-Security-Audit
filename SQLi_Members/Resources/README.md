@@ -35,8 +35,6 @@ curl -s "[http://192.168.159.133/index.php?page=member&id=99999%20UNION%20SELECT
 
 Le hash MD5 exfiltré (`5ff9d0165b4f92b14994e5c685cdce28`) correspond au mot de passe en clair `fortytwo`. Son empreinte SHA256 finale constitue le flag.
 
-**Flag :** 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
-
 ## Remédiation
 
 1. **Requêtes préparées :** Utiliser des requêtes SQL paramétrées (ex: PDO `prepare()` et `execute()`) pour empêcher l'interprétation des entrées utilisateur comme du code.
