@@ -2,6 +2,8 @@ import os
 import argparse
 
 def template_report(path_glob: str, path:str, namefile: str)-> None:
+    report_path=f"{path}/README.md"
+    flag_path=f"{path_glob}/flag"
     template_report = f"""#{namefile}
 
 ## Description de la vulnérabilité
@@ -14,13 +16,13 @@ def template_report(path_glob: str, path:str, namefile: str)-> None:
 @TODO
 """
 
-    with open(f"{path}/{namefile}.md", "w") as f:
+    with open(report_path, "w") as f:
         f.write(template_report)
-    print(f"Template repport '{path}/README.md' created successfully.")
+    print(f"Template repport '{report_path}' created successfully.")
 
-    with open(f"{path_glob}/flag", "w") as f:
+    with open(flag_path, "w") as f:
         f.write("[replace flag here]")
-    print(f"Template flag created successfully.")
+    print(f"Template flag '{flag_path}' created successfully.")
 
 
 def create_folders(directory_name: str) -> None:
