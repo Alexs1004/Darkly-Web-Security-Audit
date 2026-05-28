@@ -26,3 +26,15 @@
 
 ## Cookies suspects
 - I_am_admin=68934a3e9455fa72420237eb05902327 ("false")
+
+None exhausting list: 
+[ ] SQL injection 1
+[ ] SQL injection 2
+[ ] XSS 1
+[ ] XSS 2
+[ ] Cookies 
+[ ] File upload 
+[ ] Robots.txt
+[ ] Directory transversal with URI
+[ ] useragent and redirection
+[ ] frontend survey
