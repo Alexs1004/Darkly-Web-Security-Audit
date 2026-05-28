@@ -35,7 +35,7 @@ def create_folders(directory_name: str) -> None:
         os.mkdir(directory_name)
         os.mkdir(ressources_path)
         print(f"Directory '{directory_name}' created successfully.")
-        template_report(dir_path, ressources_path, "README")
+        template_report(directory_path, ressources_path, "README")
     except FileExistsError:
         print(f"Directory '{directory_name}' already exists.")
     except PermissionError:
