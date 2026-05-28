@@ -5,18 +5,18 @@ def template_report(path_glob: str, path:str, namefile: str)-> None:
     template_report = f"""#{namefile}
 
 ## Description de la vulnérabilité
-Decrire la vulnérabilité
+@TODO
 
 ## Méthode d'exploitation
-Decrire la methode d'exploitation
+@TODO
 
 ## Remédiation
-Decrire la remediation
+@TODO
 """
 
     with open(f"{path}/{namefile}.md", "w") as f:
         f.write(template_report)
-    print(f"Template repport '{path}/{namefile}.md' created successfully.")
+    print(f"Template repport '{path}/README.md' created successfully.")
 
     with open(f"{path_glob}/flag", "w") as f:
         f.write("[replace flag here]")
@@ -35,7 +35,7 @@ def create_folders(directory_name: str) -> None:
         os.mkdir(directory_name)
         os.mkdir(ressources_path)
         print(f"Directory '{directory_name}' created successfully.")
-        template_report(directory_path, ressources_path, "README")
+        template_report(directory_path, ressources_path, directory_name)
     except FileExistsError:
         print(f"Directory '{directory_name}' already exists.")
     except PermissionError:
