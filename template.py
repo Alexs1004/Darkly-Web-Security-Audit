@@ -1,0 +1,66 @@
+import os
+import argparse
+
+def template_report(path_glob: str, path:str, namefile: str)-> None:
+    report_path=f"{path}/README.md"
+    flag_path=f"{path_glob}/flag"
+    template_report = f"""#{namefile}
+
+## Description de la vulnérabilité
+@TODO
+
+## Méthode d'exploitation
+@TODO
+
+## Remédiation
+@TODO
+"""
+
+    with open(report_path, "w") as f:
+        f.write(template_report)
+    print(f"Template repport '{report_path}' created successfully.")
+
+    with open(flag_path, "w") as f:
+        f.write("[replace flag here]")
+    print(f"Template flag '{flag_path}' created successfully.")
+
+
+def create_folders(directory_name: str) -> None:
+    """
+    Creation du template
+    Une dossier avec le bon nom et les fichiers de bases
+    """
+    try:
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        directory_path = f"{dir_path}/{directory_name}"
+        ressources_path = f"{directory_path}/Resources"
+        os.mkdir(directory_name)
+        os.mkdir(ressources_path)
+        print(f"Directory '{directory_name}' created successfully.")
+        template_report(directory_path, ressources_path, directory_name)
+    except FileExistsError:
+        print(f"Directory '{directory_name}' already exists.")
+    except PermissionError:
+        print(f"Permission denied: Unable to create '{directory_name}'.")
+
+def main():
+    """
+    Main fonction where you ask for a vulnerability name.
+    """
+    parser = argparse.ArgumentParser(
+                    prog='Template_generator',
+                    description='This script generate a template for the vuln.')
+    parser.add_argument('-n',
+                        '--name',
+                        type=str,
+                        help='Name you want to use for the template',
+                        nargs=1)
+    args = parser.parse_args()
+    if args.name:
+        create_folders(args.name[0])
+    else:
+        print("Wrong usage need name for template folder")
+
+
+if __name__ == "__main__":
+    main()
