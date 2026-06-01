@@ -1,7 +1,14 @@
 # Mass Assignment / Hidden Field Parameter Tampering
 
 ## Description de la vulnérabilité
-L'application web implémente une fonctionnalité de récupération de mot de passe qui repose sur la confiance aveugle des données transmises par le client. L'adresse email cible est stockée dans un champ de formulaire masqué (`type="hidden"`). L'absence de validation de l'intégrité de ce champ côté serveur permet à un attaquant de modifier arbitrairement sa valeur lors de la soumission de la requête.
+L'application web implémente une fonctionnalité de [récupération de mot de passe](http://[ip]/?page=recover) qui repose sur des données transmises via le client. L'adresse email cible est stockée dans un champ de formulaire masqué (`type="hidden"`). 
+```html
+<form action="#" method="POST">
+	<input type="hidden" name="mail" value="webmaster@borntosec.com" maxlength="15">
+	<input type="submit" name="Submit" value= "Submit">
+</form>
+```
+L'absence de validation de l'intégrité de ce champ côté serveur permet à un attaquant de modifier arbitrairement sa valeur lors de la soumission de la requête.
 
 ## Méthode d'exploitation
 L'exploitation consiste à intercepter et modifier le paramètre `mail` via une requête HTTP POST contrefaite afin d'altérer la logique métier de l'application.
