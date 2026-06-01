@@ -3,7 +3,7 @@
 ## Description de la vulnérabilité
 L'application web implémente un mécanisme de contrôle d'accès défaillant basé exclusivement sur la vérification d'en-têtes HTTP restrictifs (`User-Agent` et `Referer`). 
 
-L'analyse des commentaires HTML de la page cible révèle que le backend restreint l'affichage du secret aux requêtes provenant prétendument du domaine `https://www.nsa.gov/` et utilisant un agent utilisateur customisé nommé `ft_bornToSec`. Ces informations transitant entièrement côté client, elles peuvent être falsifiées pour contourner la restriction.
+Dans la page `© BornToSec` dans le footer. L'analyse des commentaires HTML de la page cible révèle que le backend restreint l'affichage du secret aux requêtes provenant prétendument du domaine `https://www.nsa.gov/` et utilisant un agent utilisateur customisé nommé `ft_bornToSec`. Ces informations transitant entièrement côté client, elles peuvent être falsifiées pour contourner la restriction.
 
 ## Méthode d'exploitation
 L'exploitation est réalisée en forgeant une requête HTTP `GET` configurée avec les attributs requis pour tromper les vérifications du serveur.
