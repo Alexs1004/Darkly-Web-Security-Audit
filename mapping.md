@@ -28,13 +28,18 @@
 - I_am_admin=68934a3e9455fa72420237eb05902327 ("false")
 
 None exhausting list: 
-[ ] SQL injection 1
-[ ] SQL injection 2
-[ ] XSS 1
-[ ] XSS 2
-[ ] Cookies 
-[ ] File upload 
-[ ] Robots.txt
-[ ] Directory transversal with URI
-[ ] useragent and redirection
-[ ] frontend survey
+[x] SQL injection 1  
+[x] SQL injection 2  
+[x] XSS 1  
+[x] XSS 2  
+[x] Cookies   
+[x] File upload   
+[x] Robots.txt  
+[ ] Directory transversal with URI  
+[ ] Directory transversal with URI  
+[x] useragent and redirection  
+[x] Parameter tempering survey  
+[x] Parameter tempering recover mail  
+[x] Brute force on login
+[ ] 
+[ ]
